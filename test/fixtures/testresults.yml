@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  test_case_name: MyString
+  feature_name: MyString
+  test_result: MyString
+  environment: MyString
+  error_msg: MyString
+  duration: 1
+
+two:
+  test_case_name: MyString
+  feature_name: MyString
+  test_result: MyString
+  environment: MyString
+  error_msg: MyString
+  duration: 1
