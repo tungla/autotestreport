@@ -14,9 +14,9 @@
     <% @feature_names.each do |feature_name| %>
       <tr>
         <th scope="row"><%= i %></th>
-        <td><%= link_to feature_name.feature_name, "#{controller_name}/#{feature_name.feature_name}" %></td>
-        <td>Blank</td>
-        <td>Blank</td>
+        <td><%= link_to feature_name.feature_name, URI.encode("#{controller_name}/#{feature_name.feature_name}") %></td>
+        <td><%= @number_of_testcase[i-1] %></td>
+        <td><%= @run_count_testcase[i-1] %></td>
       </tr>
       <% i = i + 1 %>
     <% end %>

@@ -6,6 +6,14 @@ class TestresultsController < ApplicationController
   # GET /testresults.json
   def index
     @feature_names = Testresult.get_distinct_feature_name
+    @number_of_testcase = []
+    @feature_names.each do |feature_name|
+      @number_of_testcase = @number_of_testcase.push(Testresult.get_test_case_number_with_feature_name(feature_name.feature_name))
+    end
+    @run_count_testcase = []
+    @feature_names.each do |feature_name|
+      @run_count_testcase = @run_count_testcase.push(Testresult.get_test_case_run_count_with_feature(feature_name.feature_name))
+    end
   end
 
   # GET /testresults/1
