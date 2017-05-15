@@ -11,21 +11,27 @@
     color: white;
 }
 
-.navbar-brand {
+.navbar-brand > a:visited {
 	color: white;
 }
 
 .navbar-brand > img {
-	height: 40px;
+	height: 25px;
 }
 
-#testresult-table, #summary-table {
+#testresult-table, #summary-table, #failed-table {
 	width: 90%;
-	margin: 5%;
+	margin-left: 5%;
+	margin-top: 2%;
 	align: center;
 }
 
-#testresult-table > thead th, #summary-table > thead th {
+#failed-table > thead th, #testresult-table > thead th, #summary-table > thead th {
 	background-color: #189eff;
 	color: white;
+}
+
+.badge-info, .badge-danger {
+	margin-left: 5%;
+	margin-top: 5%;
 }

@@ -15,11 +15,11 @@
     <% @testresults.each do |testresult| %>
       <tr>
         <th scope="row"><%= i %></th>
-        <td><%= testresult.feature_name %></td>
-        <td>Blank</td>
-        <td>Blank</td>
-        <td></td>
-        <td></td>
+        <td><%= testresult.test_case_name %></td>
+        <td><%= testresult.test_result %></td>
+        <td><%= testresult.created_at %></td>
+        <td><%= testresult.environment %></td>
+        <td><%= testresult.error_msg %></td>
       </tr>
       <% i = i + 1 %>
     <% end %>

@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+5.times do |i|
+  Testresult.create(feature_name: "Feature ##{i}", test_case_name: "Test case ##{i}.", test_result: "Passed")
+end
