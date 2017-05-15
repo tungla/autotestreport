@@ -7,7 +7,6 @@ class Testresult < ApplicationRecord
 	end
 
 	def self.get_test_result_with_feature_name feature_name
-		# Testresult.find_by_sql ["select * from testresults where feature_name = ? group by test_case_name", Mysql2::Client.escape(feature_name)]
 		# Testresult.where("feature_name = '#{feature_name}'").group(:test_case_name)
 		Testresult.select("DISTINCT ON (test_case_name) test_case_name,*").where("feature_name = '#{feature_name}'")
 	end
