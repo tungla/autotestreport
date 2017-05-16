@@ -5,7 +5,9 @@ class TestresultsController < ApplicationController
   # GET /testresults
   # GET /testresults.json
   def index
-    @feature_names = Testresult.get_distinct_feature_name
+    @failed_cases = Testresult.get_failed_test_case.paginate(:page => params[:failed_page], :per_page => 5)
+    @feature_names = Testresult.get_distinct_feature_name.paginate(:page => params[:feature_page], :per_page => 5)
+    # @feature_names = Testresult.paginate(:page => params[:page], :per_page => 5)
     @number_of_testcase = []
     @feature_names.each do |feature_name|
       @number_of_testcase = @number_of_testcase.push(Testresult.get_test_case_number_with_feature_name(feature_name.feature_name))

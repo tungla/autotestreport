@@ -21,7 +21,6 @@
 
 #testresult-table, #summary-table, #failed-table {
 	width: 90%;
-	margin-left: 5%;
 	margin-top: 2%;
 	align: center;
 }
@@ -32,6 +31,9 @@
 }
 
 .badge-info, .badge-danger {
-	margin-left: 5%;
 	margin-top: 5%;
+}
+
+.feature-table, .failed-table, .result-table {
+	margin-left: 5%;
 }

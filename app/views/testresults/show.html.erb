@@ -1,10 +1,11 @@
 <%= render 'navbar' %>
+<div class ='result-table'>
 <table class="table table-striped" id="testresult-table">
   <thead>
     <tr>
       <th>#</th>
       <th>Test Case Name</th>
-      <th>Result</th>
+      <th>Last Run Result</th>
       <th>Last Run</th>
       <th>Environment</th>
       <th>Error Message</th>
@@ -16,7 +17,11 @@
       <tr>
         <th scope="row"><%= i %></th>
         <td><%= testresult.test_case_name %></td>
-        <td><%= testresult.test_result %></td>
+        <% if testresult.test_result.downcase == 'passed' %>
+          <td><span class="badge badge-success"><%= testresult.test_result %></span></td>
+        <% else %>
+          <td><span class="badge badge-danger"><%= testresult.test_result %></span></td>
+        <% end %>
         <td><%= testresult.created_at %></td>
         <td><%= testresult.environment %></td>
         <td><%= testresult.error_msg %></td>
@@ -25,3 +30,4 @@
     <% end %>
   </tbody>
 </table>
+</div>

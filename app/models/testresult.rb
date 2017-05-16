@@ -8,7 +8,7 @@ class Testresult < ApplicationRecord
 
 	def self.get_test_result_with_feature_name feature_name
 		# Testresult.where("feature_name = '#{feature_name}'").group(:test_case_name)
-		Testresult.select("DISTINCT ON (test_case_name) test_case_name,*").where("feature_name = '#{feature_name}'")
+		Testresult.select("DISTINCT ON (test_case_name) test_case_name,*").where("feature_name = '#{feature_name}'").order('test_case_name, created_at desc')
 	end
 
 	def self.get_test_case_number_with_feature_name feature_name
@@ -17,5 +17,9 @@ class Testresult < ApplicationRecord
 
 	def self.get_test_case_run_count_with_feature feature_name
 		Testresult.select(:test_case_name).where("feature_name = '#{feature_name}'").count
+	end
+
+	def self.get_failed_test_case
+		Testresult.where("test_result = 'Failed'").order('created_at desc')
 	end
 end
