@@ -47,6 +47,11 @@ GEM
     bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bootstrap-datepicker-rails (1.6.4.1)
+      railties (>= 3.0)
+    bootstrap-glyphicons (0.0.1)
+      railties (>= 3.0)
+      sass (>= 3.2)
     bootstrap-will_paginate (1.0.0)
       will_paginate
     builder (3.2.3)
@@ -174,6 +179,8 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap (~> 4.0.0.alpha6)
+  bootstrap-datepicker-rails
+  bootstrap-glyphicons
   bootstrap-will_paginate
   byebug
   capybara (~> 2.13.0)

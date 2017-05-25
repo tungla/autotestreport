@@ -28,37 +28,3 @@
 </div>
 
 
-<div class = 'failed-table'>
-<h3><span class="badge badge-danger">Failed Test Case</span></h3>
-<table class="table table-striped" id="testresult-table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Test Case Name</th>
-      <th>Result</th>
-      <th>Last Run</th>
-      <th>Environment</th>
-      <th>Error Message</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% i = 1 %>
-    <% @failed_cases.each do |failed_case| %>
-      <tr>
-        <th scope="row"><%= i %></th>
-        <td><%= failed_case.test_case_name %></td>
-        <% if failed_case.test_result.downcase == 'passed' %>
-          <td><span class="badge badge-success"><%= failed_case.test_result %></span></td>
-        <% else %>
-          <td><span class="badge badge-danger"><%= failed_case.test_result %></span></td>
-        <% end %>
-        <td><%= failed_case.created_at %></td>
-        <td><%= failed_case.environment %></td>
-        <td><%= failed_case.error_msg %></td>
-      </tr>
-      <% i = i + 1 %>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate(@failed_cases,:param_name => 'failed_page', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
-</div>

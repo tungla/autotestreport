@@ -20,6 +20,10 @@ class Testresult < ApplicationRecord
 	end
 
 	def self.get_failed_test_case
-		Testresult.where("test_result = 'Failed'").order('created_at desc')
+		Testresult.select("DISTINCT ON (test_case_name) test_case_name,*").where("test_result = 'Failed'").order('test_case_name, created_at desc')
+	end
+
+	def self.get_failed_test_results_at_exact_date date
+		Testresult.select("DISTINCT ON (test_case_name) test_case_name,*").where("test_result = 'Failed' and created_at::date = date '#{date}'").order('test_case_name, created_at desc')
 	end
 end

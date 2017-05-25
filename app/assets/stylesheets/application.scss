@@ -12,10 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-datepicker
  */
 
 /*Custom bootstrap variables must be set or imported *before* bootstrap.*/
 @import "bootstrap";
+@import 'bootstrap/glyphicons';
 
 body {
 	background-color: #f7f7f7;
@@ -23,4 +25,81 @@ body {
 
 .badge-info {
 	background-color: #189eff;
+}
+
+.date {
+	width: 20%;
+}
+
+.navbar {
+	background-color: #189eff;
+	height: 60px;
+}
+
+.navbar-brand {
+	float: left;
+    color: white;
+}
+
+.navbar-brand > a:visited {
+	color: white;
+}
+
+.navbar-brand > img {
+	height: 25px;
+}
+
+.header-menu {
+	margin-top: 0.25%;
+}
+
+.header-menu > li {
+	display: inline;
+	list-style-type: none;
+	padding: 1%;
+	margin-bottom: 2%;
+}
+
+.header-menu > li > a:visited, .header-menu > li > a {
+	color:white;
+	font-size: 1rem;
+	font-weight: bold;
+	background-color: #189eff;
+	border-color: #189eff;
+}
+
+a:hover {
+	background-color: transparent;
+	text-decoration:none;
+}
+
+/* Underline From Center */
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: white;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
 }

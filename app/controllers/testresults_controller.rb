@@ -5,9 +5,7 @@ class TestresultsController < ApplicationController
   # GET /testresults
   # GET /testresults.json
   def index
-    @failed_cases = Testresult.get_failed_test_case.paginate(:page => params[:failed_page], :per_page => 5)
     @feature_names = Testresult.get_distinct_feature_name.paginate(:page => params[:feature_page], :per_page => 5)
-    # @feature_names = Testresult.paginate(:page => params[:page], :per_page => 5)
     @number_of_testcase = []
     @feature_names.each do |feature_name|
       @number_of_testcase = @number_of_testcase.push(Testresult.get_test_case_number_with_feature_name(feature_name.feature_name))
@@ -15,6 +13,15 @@ class TestresultsController < ApplicationController
     @run_count_testcase = []
     @feature_names.each do |feature_name|
       @run_count_testcase = @run_count_testcase.push(Testresult.get_test_case_run_count_with_feature(feature_name.feature_name))
+    end
+  end
+
+  def show_failed_case
+    if params.has_key?(:date) and params[:date] != ''
+      parsed_time = DateTime.strptime(params[:date].to_s, '%m/%d/%Y')
+      @failed_cases = Testresult.get_failed_test_results_at_exact_date(parsed_time).paginate(:page => params[:failed_page], :per_page => 5)
+    else
+      @failed_cases = Testresult.get_failed_test_case.paginate(:page => params[:failed_page], :per_page => 5)
     end
   end
 

@@ -2,21 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.navbar {
-	background-color: #189eff;
-	height: 60px;
-}
-
-.navbar-brand {
-    color: white;
-}
-
-.navbar-brand > a:visited {
-	color: white;
-}
-
-.navbar-brand > img {
-	height: 25px;
+a, a:visited {
+	color: #189eff;
 }
 
 #testresult-table, #summary-table, #failed-table {
@@ -30,10 +17,25 @@
 	color: white;
 }
 
-.badge-info, .badge-danger {
+.failed-table {
+	margin-top: 5%;
+}
+
+.badge-info {
 	margin-top: 5%;
 }
 
 .feature-table, .failed-table, .result-table {
 	margin-left: 5%;
+}
+
+.input-group {
+	height: 15%;
+	float: left;
+	margin-right: 2%;
+}
+
+.badge-danger {
+	float: left;
+	margin-right: 50%;
 }
