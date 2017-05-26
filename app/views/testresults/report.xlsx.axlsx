@@ -1,6 +1,24 @@
 wb = xlsx_package.workbook
-wb.add_worksheet(name: "Buttons") do |sheet|
-  @testresults.each do |test_result|
-    sheet.add_row [test_result.test_case_name]
-  end
+
+wb.styles do |style|
+	header = style.add_style :bg_color => '008800', :fg_color => 'FF', :b => true
+	passed_colors = { :bg_color => 'FFFFFF', :fg_color => '000fff' }
+    failed_colors = { :bg_color => 'FFFFFF', :fg_color => 'ff0000' }
+    norun_colors = { :bg_color => 'FFFFFF', :fg_color => '000000' }
+    passed_style = style.add_style passed_colors.merge({ :border => Axlsx::STYLE_THIN_BORDER, :b => false })
+	failed_style = style.add_style failed_colors.merge({ :border => Axlsx::STYLE_THIN_BORDER, :b => false })
+	norun_style = style.add_style norun_colors.merge({ :border => Axlsx::STYLE_THIN_BORDER, :b => false })
+	i = 1
+
+	wb.add_worksheet(name: "Report") do |sheet|
+	  sheet.add_row ["No.", "Feature", "TC_Name", "Status", "Error logs", "Duration"], :style => header
+	  @testresults.each do |test_result|
+	  	if test_result.test_result.downcase == 'passed'
+		    sheet.add_row [i, test_result.feature_name, test_result.test_case_name, test_result.test_result, test_result.error_msg, test_result.duration], :style => passed_style
+		else
+			sheet.add_row [i, test_result.feature_name, test_result.test_case_name, test_result.test_result, test_result.error_msg, test_result.duration], :style => failed_style
+		end
+		i = i + 1
+	end
+	end
 end
