@@ -16,12 +16,33 @@ class TestresultsController < ApplicationController
     end
   end
 
+
+  # GET /failed-case
   def show_failed_case
     if params.has_key?(:date) and params[:date] != ''
       parsed_time = DateTime.strptime(params[:date].to_s, '%m/%d/%Y')
       @failed_cases = Testresult.get_failed_test_results_at_exact_date(parsed_time).paginate(:page => params[:failed_page], :per_page => 5)
     else
       @failed_cases = Testresult.get_failed_test_case.paginate(:page => params[:failed_page], :per_page => 5)
+    end
+  end
+
+  # GET /analysis
+  def analysis
+    if params.has_key?(:chart_range) and params[:chart_range] != ''
+      case params[:chart_range]
+        when 'last 3 days'
+          @passed_cases = Testresult.get_passed_test_results_with_time_range 3
+          @total_cases = Testresult.get_total_test_results_with_time_range 3
+        when 'last 7 days'
+          @passed_cases = Testresult.get_passed_test_results_with_time_range 7
+          @total_cases = Testresult.get_total_test_results_with_time_range 7
+        when 'last month'
+          @passed_cases = Testresult.get_passed_test_results_with_time_range 30
+          @total_cases = Testresult.get_total_test_results_with_time_range 30
+      end
+    else
+      nil
     end
   end
 

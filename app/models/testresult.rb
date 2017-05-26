@@ -26,4 +26,12 @@ class Testresult < ApplicationRecord
 	def self.get_failed_test_results_at_exact_date date
 		Testresult.select("DISTINCT ON (test_case_name) test_case_name,*").where("test_result = 'Failed' and created_at::date = date '#{date}'").order('test_case_name, created_at desc')
 	end
+
+	def self.get_passed_test_results_with_time_range range
+		Testresult.select("DISTINCT test_case_name").where("test_result = 'Passed' and created_at::date > current_date - #{range}")
+	end
+
+	def self.get_total_test_results_with_time_range range
+		Testresult.select("DISTINCT test_case_name").where("created_at::date > current_date - #{range}")
+	end
 end
