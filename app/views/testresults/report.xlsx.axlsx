@@ -1,0 +1,6 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Buttons") do |sheet|
+  @testresults.each do |test_result|
+    sheet.add_row [test_result.test_case_name]
+  end
+end

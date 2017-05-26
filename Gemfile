@@ -49,6 +49,13 @@ gem 'bootstrap-glyphicons'
 gem 'chartkick'
 gem 'groupdate'
 
+# Convert to local time gem
+gem 'local_time'
+
+# Xlsx
+gem 'axlsx'
+gem "axlsx_rails"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

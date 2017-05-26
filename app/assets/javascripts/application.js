@@ -20,4 +20,5 @@
 //= require bootstrap-datepicker
 //= require highcharts
 //= require chartkick
+//= require local_time
 

@@ -33,7 +33,7 @@
         <% else %>
           <td><span class="badge badge-danger"><%= failed_case.test_result %></span></td>
         <% end %>
-        <td><%= failed_case.created_at %></td>
+        <td><%= local_time(failed_case.created_at)%></td>
         <td><%= failed_case.environment %></td>
         <td><%= failed_case.error_msg %></td>
       </tr>

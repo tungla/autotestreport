@@ -52,6 +52,17 @@ class TestresultsController < ApplicationController
     @testresults = Testresult.get_test_result_with_feature_name(params[:feature_name])
   end
 
+  # GET /report
+  def report
+    if params.has_key?(:date) and params[:date] != ''
+      parsed_time = DateTime.strptime(params[:date].to_s, '%m/%d/%Y')
+      @testresults = Testresult.get_test_result_with_exact_date parsed_time
+      render xlsx: "report.xlsx", filename: "report-#{parsed_time}.xlsx"
+    else
+      render 'report'
+    end
+  end
+
   # GET /testresults/new
   def new
     @testresult = Testresult.new
