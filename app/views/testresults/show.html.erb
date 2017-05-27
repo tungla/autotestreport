@@ -22,7 +22,7 @@
         <% else %>
           <td><span class="badge badge-danger"><%= testresult.test_result %></span></td>
         <% end %>
-        <td><%= testresult.created_at %></td>
+        <td><%= local_time(testresult.created_at) %></td>
         <td><%= testresult.environment %></td>
         <td><%= testresult.error_msg %></td>
       </tr>

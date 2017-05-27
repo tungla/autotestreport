@@ -20,6 +20,7 @@
       <th>Last Run</th>
       <th>Environment</th>
       <th>Error Message</th>
+      <th>Reviewed</th>
     </tr>
   </thead>
   <tbody>
@@ -36,6 +37,14 @@
         <td><%= local_time(failed_case.created_at)%></td>
         <td><%= failed_case.environment %></td>
         <td><%= failed_case.error_msg %></td>
+        <td><%= form_for(:testresults, authenticity_token: false, enforce_utf8: false, html: {id: "reviewed-checkbox"}) do |f| %>
+              <%= f.text_field :id, type: "hidden", name: "id", value: failed_case.id %>
+              <% if failed_case.reviewed == true %>
+                <span class="badge badge-success">Reviewed</span>
+              <% else %>
+                <%= f.check_box :reviewed, name: "reviewed", value: failed_case.reviewed, :onclick => "$('#reviewed-checkbox').submit()" %>
+              <% end %>
+            <% end %></td>
       </tr>
       <% i = i + 1 %>
     <% end %>

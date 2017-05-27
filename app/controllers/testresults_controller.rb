@@ -27,6 +27,13 @@ class TestresultsController < ApplicationController
     end
   end
 
+  # POST /failed-case
+  def change_review
+    @test_result = Testresult.find(params[:id])
+    (params[:reviewed] == '1')?(@test_result.update_attribute(:reviewed, true)):(@test_result.update_attribute(:reviewed, false))
+    redirect_to show_failed_case
+  end
+
   # GET /analysis
   def analysis
     if params.has_key?(:chart_range) and params[:chart_range] != ''

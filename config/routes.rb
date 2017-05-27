@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "testresults#index"
   get "testresults/:feature_name" => "testresults#show"
   get "failed-case" => "testresults#show_failed_case"
+  post "failed-case" => "testresults#change_review"
   get "analysis" => "testresults#analysis"
   get "report" => "testresults#report"
   resources :testresults
