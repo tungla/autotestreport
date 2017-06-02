@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527091142) do
+ActiveRecord::Schema.define(version: 20170527155743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "testresultcomments", primary_key: "comment_id", id: :integer, default: nil, force: :cascade do |t|
+    t.bigint "testresult_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["testresult_id"], name: "index_testresultcomments_on_testresult_id"
+  end
 
   create_table "testresults", force: :cascade do |t|
     t.string "test_case_name"

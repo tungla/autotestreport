@@ -1,0 +1,2 @@
+module TestresultcommentsHelper
+end

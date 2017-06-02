@@ -28,7 +28,7 @@ body {
 }
 
 .date {
-	width: 20%;
+	width: 40%;
 }
 
 .navbar {
@@ -37,8 +37,7 @@ body {
 }
 
 .navbar-brand {
-	float: left;
-    color: white;
+  color: white;
 }
 
 .navbar-brand > a:visited {
@@ -102,4 +101,9 @@ a:hover {
 .hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
   left: 0;
   right: 0;
+}
+
+.comment-form {
+  margin-top: 1%;
+  width: 50%;
 }

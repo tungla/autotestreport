@@ -31,7 +31,7 @@ class TestresultsController < ApplicationController
   def change_review
     @test_result = Testresult.find(params[:id])
     (params[:reviewed] == '1')?(@test_result.update_attribute(:reviewed, true)):(@test_result.update_attribute(:reviewed, false))
-    redirect_to show_failed_case
+    redirect_to action: "show_failed_case"
   end
 
   # GET /analysis
@@ -55,8 +55,12 @@ class TestresultsController < ApplicationController
 
   # GET /testresults/1
   # GET /testresults/1.json
-  def show
+  def show_feature_detail
     @testresults = Testresult.get_test_result_with_feature_name(params[:feature_name])
+  end
+
+  def show
+    @testresult = Testresult.find(params[:id])
   end
 
   # GET /report
