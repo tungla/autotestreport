@@ -6,10 +6,14 @@ a, a:visited {
 	color: #189eff;
 }
 
-#testresult-table, #summary-table, #failed-table {
+#summary-table {
 	width: 90%;
 	margin-top: 2%;
 	align: center;
+}
+
+#testresult-table {
+	margin-top: 2%;
 }
 
 #failed-table > thead th, #testresult-table > thead th, #summary-table > thead th {
@@ -33,10 +37,13 @@ a, a:visited {
 	margin-left: 5%;
 }
 
-.input-group {
+#date-filter {
 	height: 15%;
 	float: left;
-	margin-right: 2%;
+}
+
+#date-filter-icon {
+	margin-right: 5%;
 }
 
 .badge-danger {

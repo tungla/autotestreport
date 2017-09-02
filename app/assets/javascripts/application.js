@@ -21,4 +21,6 @@
 //= require highcharts
 //= require chartkick
 //= require local_time
+//= require bootstrap.min
+//= require bootstrap
 

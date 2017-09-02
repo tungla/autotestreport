@@ -12,6 +12,29 @@
 </div>
 
 <% if params.has_key?(:chart_range) and params[:chart_range] != '' %>
-<%= column_chart [{name: "Passed TC", data: @passed_cases.group_by_day(:created_at).count},{name: "Total TC", data: @total_cases.group_by_day(:created_at).count}], colors: ["green", "blue"] %>
+	<% if @total_cases.count == 0 %>
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">Error</h4>
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		      </div>
+		      <div class="modal-body">
+		        <p>No results found!</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<script> $('#myModal').modal('show'); </script>
+	<% else %>
+		<%= column_chart [{name: "Passed TC", data: @passed_cases.group_by_day(:created_at).count},{name: "Total TC", data: @total_cases.group_by_day(:created_at).count}], colors: ["green", "blue"] %>
+	<% end %>
 <% end %>
 <% end %>
