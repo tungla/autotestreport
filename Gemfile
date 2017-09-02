@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'popper_js', '~> 1.12.3'
+gem 'tether-rails'
 gem 'jquery-rails'
 
 # Pagination gem
@@ -42,19 +44,19 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate'
 
 # Date picker bootstrap
-gem 'bootstrap-datepicker-rails'
-gem 'bootstrap-glyphicons'
+gem 'bootstrap-datepicker-rails', '~> 1.3.0.2'
+gem 'bootstrap-glyphicons', '~> 0.0.1'
 
 # Chart
-gem 'chartkick'
-gem 'groupdate'
+gem 'chartkick', '~> 2.2.4'
+gem 'groupdate', '~> 3.2.0'
 
 # Convert to local time gem
 gem 'local_time'
 
 # Xlsx
-gem 'axlsx'
-gem "axlsx_rails"
+gem 'axlsx', '~> 2.0.1'
+gem "axlsx_rails", '~> 0.5.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

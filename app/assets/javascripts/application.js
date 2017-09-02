@@ -12,15 +12,16 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
-
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
-//= require bootstrap-datepicker
 //= require highcharts
 //= require chartkick
 //= require local_time
+//= require popper
+//= require tether
 //= require bootstrap.min
 //= require bootstrap
+//= require bootstrap-sprockets
+//= require bootstrap-datepicker
+//= require_tree .
 

@@ -12,8 +12,9 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap-datepicker
+ *= require tether
  *= require bootstrap
+ *= require bootstrap-datepicker
  */
 
 /*Custom bootstrap variables must be set or imported *before* bootstrap.*/
