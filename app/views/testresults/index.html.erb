@@ -1,30 +1,38 @@
 <%= render 'navbar' %>
 
-<div class="feature-table">
-<h3><span class="badge badge-info">Feature Summary</span></h3>
-<table class="table table-striped" id="summary-table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Feature Name</th>
-      <th>Number of Test Case</th>
-      <th>Test Case Run Count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% i = 1 %>
-    <% @feature_names.each do |feature_name| %>
-      <tr>
-        <th scope="row"><%= i %></th>
-        <td><%= link_to feature_name.feature_name, URI.encode("/#{feature_name.feature_name}") %></td>
-        <td><%= @number_of_testcase[i-1] %></td>
-        <td><%= @run_count_testcase[i-1] %></td>
-      </tr>
-      <% i = i + 1 %>
-    <% end %>
-  </tbody>
-  </table>
-  <%= will_paginate(@feature_names,:param_name => 'feature_page', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+<div class="feature-table container-fluid">
+  <div class="row">
+    <div class="col-sm-9">
+      <h3><span class="badge badge-info">Feature Summary</span></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-striped" id="summary-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Feature Name</th>
+            <th>Number of Test Case</th>
+            <th>Test Case Run Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% i = 1 %>
+          <% @feature_names.each do |feature_name| %>
+            <tr>
+              <th scope="row"><%= i %></th>
+              <td><%= link_to feature_name.feature_name, URI.encode("/#{feature_name.feature_name}") %></td>
+              <td><%= @number_of_testcase[i-1] %></td>
+              <td><%= @run_count_testcase[i-1] %></td>
+            </tr>
+            <% i = i + 1 %>
+          <% end %>
+        </tbody>
+        </table>
+        <%= will_paginate(@feature_names,:param_name => 'feature_page', :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+      </div>
+  </div>
 </div>
 
 
